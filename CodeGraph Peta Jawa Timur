@@ -36,20 +36,25 @@ class Map:
             return True
         return False
 
-        return False
-    
-    def add_road(self, city1, connected_cities):
-        if city1 in self.city_list:
-            for city2 in connected_cities:
-                if city2 in self.city_list:
-                    self.city_list[city1].append(city2)
-                    self.city_list[city2].append(city1)
-            return True
-        return False
-
-    def remove_road(self, city1, city2):
-        if city1 and city2 in self.city_list:
-            self.city_list[city2].remove(city1)
-            self.city_list[city1].remove(city2)
-            return True
-        return False
+petaKorea = Map()
+petaKorea.add_city("Surabaya")
+petaKorea.add_city("Sidoarjo")
+petaKorea.add_city("Pasuruan")
+petaKorea.add_city("Malang")
+petaKorea.add_city("Blitar")
+petaKorea.add_city("Kediri")
+petaKorea.add_city("Trenggalek")
+petaKorea.add_city("Pacitan")
+petaKorea.add_city("Madiun")
+petaKorea.add_city("Bojonegoro")
+petaKorea.add_road("Surabaya", ["Sidoarjo","Pasuruan", "Malang", "Blitar", "Kediri", "Trenggalek", "Pacitan", "Madiun", "Bojonegoro"] )
+petaKorea.add_road("Sidoarjo", ["Pasuruan", "Malang", "Blitar", "Kediri", "Trenggalek", "Pacitan", "Madiun", "Bojonegoro"] )
+petaKorea.add_road("Pasuruan", [ "Malang", "Blitar", "Kediri", "Trenggalek", "Pacitan", "Madiun", "Bojonegoro"] )
+petaKorea.add_road("Malang", ["Blitar", "Kediri", "Trenggalek", "Pacitan", "Madiun", "Bojonegoro"] )
+petaKorea.add_road("Blitar", ["Kediri", "Trenggalek", "Pacitan", "Madiun", "Bojonegoro"] )
+petaKorea.add_road("Kediri", ["Trenggalek", "Pacitan", "Madiun", "Bojonegoro"] )
+petaKorea.add_road("Trenggalek", [ "Pacitan", "Madiun", "Bojonegoro"] )
+petaKorea.add_road("Pacitan", ["Madiun", "Bojonegoro"] )
+petaKorea.add_road("Madiun", ["Bojonegoro"] )
+print('------------------------------')
+petaKorea.print_city()
