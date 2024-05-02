@@ -19,6 +19,7 @@ class Map:
                     self.city_list[another_city].remove(removed_city)
             del self.city_list[removed_city]
             return True
+        return False
     
     def add_road(self, city1, connected_cities):
         if city1 in self.city_list:
