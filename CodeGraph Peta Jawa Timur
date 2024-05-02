@@ -1,0 +1,22 @@
+class Map:
+    def __init__(self):
+        self.city_list = {}
+
+    def add_city(self, city):
+        if city not in self.city_list:
+            self.city_list[city] = []
+            return True
+        return False
+
+    def print_city(self):
+        for city in self.city_list:
+            print(f"\n{city} : {self.city_list[city]}")
+        
+    def remove_city(self, removed_city):
+        if removed_city in self.city_list:
+            for another_city in self.city_list:
+                if removed_city in self.city_list[another_city]:
+                    self.city_list[another_city].remove(removed_city)
+            del self.city_list[removed_city]
+            return True
+        return False
