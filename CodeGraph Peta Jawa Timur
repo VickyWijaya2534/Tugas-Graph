@@ -20,3 +20,19 @@ class Map:
             del self.city_list[removed_city]
             return True
         return False
+    
+    def add_road(self, city1, connected_cities):
+        if city1 in self.city_list:
+            for city2 in connected_cities:
+                if city2 in self.city_list:
+                    self.city_list[city1].append(city2)
+                    self.city_list[city2].append(city1)
+            return True
+        return False
+
+    def remove_road(self, city1, city2):
+        if city1 and city2 in self.city_list:
+            self.city_list[city2].remove(city1)
+            self.city_list[city1].remove(city2)
+            return True
+        return False
